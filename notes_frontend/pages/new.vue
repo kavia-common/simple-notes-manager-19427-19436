@@ -41,5 +41,5 @@ async function onCreate(payload: { title: string; content: string }) {
 </script>
 
 <style scoped>
-.title { font-size: 1.5rem; margin-bottom: 1rem; }
+.title { font-size: 1.5rem; margin-bottom: var(--space-4); }
 </style>

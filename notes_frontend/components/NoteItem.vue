@@ -45,18 +45,15 @@ function formatDate(d: string) {
 
 <style scoped>
 .note-item {
-  background: white;
-  border: 1px solid var(--gray-200);
-  border-radius: .5rem;
-  padding: 1rem;
+  composes: card card-pad from global;
   display: flex;
   flex-direction: column;
-  gap: .5rem;
+  gap: var(--space-2);
 }
 .note-header {
   display: flex;
   justify-content: space-between;
-  gap: .75rem;
+  gap: var(--space-3);
   align-items: center;
 }
 .note-title {
@@ -64,28 +61,14 @@ function formatDate(d: string) {
   font-size: 1.125rem;
 }
 .note-link {
-  color: var(--gray-700);
+  color: var(--gray-900);
   text-decoration: none;
 }
 .note-link:hover { text-decoration: underline; }
 .note-actions {
   display: flex;
-  gap: .5rem;
+  gap: var(--space-2);
 }
-.btn {
-  border: 1px solid transparent;
-  border-radius: .375rem;
-  padding: .25rem .5rem;
-  font-size: .875rem;
-  cursor: pointer;
-  text-decoration: none;
-}
-.btn-primary { background: var(--blue-600); color: white; }
-.btn-primary:hover { background: var(--blue-700); }
-.btn-secondary { background: var(--gray-100); color: var(--gray-700); }
-.btn-secondary:hover { background: var(--gray-200); }
-.btn-danger { background: #ef4444; color: white; }
-.btn-danger:hover { background: #dc2626; }
 .note-content-preview {
   margin: 0;
   color: var(--gray-700);

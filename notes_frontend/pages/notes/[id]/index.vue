@@ -64,35 +64,17 @@ onMounted(async () => {
 </script>
 
 <style scoped>
-.state { color: var(--gray-700); }
-.state.error { color: #b91c1c; }
 .note-view {
-  background: white;
-  border: 1px solid var(--gray-200);
-  border-radius: .5rem;
-  padding: 1rem;
+  composes: card card-pad from global;
 }
 .note-header {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  gap: .75rem;
+  gap: var(--space-3);
 }
 .title { margin: 0; font-size: 1.5rem; }
-.actions { display: flex; gap: .5rem; }
-.btn {
-  border: 1px solid transparent;
-  border-radius: .375rem;
-  padding: .5rem .75rem;
-  font-size: .875rem;
-  cursor: pointer;
-  text-decoration: none;
-}
-.btn-primary { background: var(--blue-600); color: white; }
-.btn-primary:hover { background: var(--blue-700); }
-.btn-danger { background: #ef4444; color: white; }
-.btn-danger:hover { background: #dc2626; }
-.content { margin-top: 1rem; }
-.pre-wrap { white-space: pre-wrap; }
-.meta { margin-top: .5rem; font-size: .75rem; color: var(--gray-500); }
+.actions { display: flex; gap: var(--space-2); }
+.content { margin-top: var(--space-4); }
+.meta { margin-top: var(--space-2); font-size: .75rem; color: var(--gray-500); }
 </style>

@@ -59,36 +59,14 @@ onMounted(() => {
 <style scoped>
 .list-header {
   display: flex;
-  gap: .75rem;
+  gap: var(--space-3);
   justify-content: space-between;
   align-items: center;
-  margin-bottom: 1rem;
+  margin-bottom: var(--space-4);
 }
-.input {
-  width: 100%;
-  border: 1px solid var(--gray-200);
-  background: white;
-  border-radius: .375rem;
-  padding: .5rem .75rem;
-}
-.btn {
-  border: 1px solid transparent;
-  border-radius: .375rem;
-  padding: .5rem .75rem;
-  font-size: .875rem;
-  cursor: pointer;
-  text-decoration: none;
-}
-.btn-primary { background: var(--blue-600); color: white; }
-.btn-primary:hover { background: var(--blue-700); }
-.state {
-  color: var(--gray-700);
-  padding: 1rem 0;
-}
-.state.error { color: #b91c1c; }
 .grid {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-  gap: .75rem;
+  gap: var(--space-3);
 }
 </style>

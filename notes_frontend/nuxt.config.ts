@@ -16,6 +16,9 @@ export default defineNuxtConfig({
       ],
     },
   },
+  css: [
+    '~/assets/css/global.css',
+  ],
   runtimeConfig: {
     public: {
       // ENV REQUIRED: NUXT_PUBLIC_NOTES_API_BASE (optional)

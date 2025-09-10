@@ -69,7 +69,5 @@ onMounted(async () => {
 </script>
 
 <style scoped>
-.title { font-size: 1.5rem; margin-bottom: 1rem; }
-.state { color: var(--gray-700); }
-.state.error { color: #b91c1c; }
+.title { font-size: 1.5rem; margin-bottom: var(--space-4); }
 </style>

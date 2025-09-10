@@ -71,36 +71,15 @@ function onSubmit() {
 
 <style scoped>
 .form {
+  composes: card card-pad from global;
   background: white;
   border: 1px solid var(--gray-200);
-  border-radius: .5rem;
-  padding: 1rem;
+  border-radius: var(--radius-lg);
   display: grid;
-  gap: 1rem;
+  gap: var(--space-4);
 }
-.row { display: grid; gap: .5rem; }
+.row { display: grid; gap: var(--space-2); }
 .label { font-size: .875rem; color: var(--gray-700); }
-.input, .textarea {
-  border: 1px solid var(--gray-200);
-  border-radius: .375rem;
-  padding: .5rem .75rem;
-  font-size: 1rem;
-}
-.textarea { min-height: 180px; }
-.actions { display: flex; gap: .5rem; align-items: center; }
-.btn {
-  border: 1px solid transparent;
-  border-radius: .375rem;
-  padding: .5rem .75rem;
-  font-size: .875rem;
-  cursor: pointer;
-  text-decoration: none;
-}
-.btn-primary { background: var(--blue-600); color: white; }
-.btn-primary:hover { background: var(--blue-700); }
-.btn-secondary { background: var(--gray-100); color: var(--gray-700); }
-.btn-secondary:hover { background: var(--gray-200); }
-.btn-danger { background: #ef4444; color: white; }
-.btn-danger:hover { background: #dc2626; }
-.error { color: #b91c1c; }
+.actions { display: flex; gap: var(--space-2); align-items: center; }
+.error { color: var(--red-600); }
 </style>

@@ -13,6 +13,6 @@ useHead({ title: 'Simple Notes - All Notes' })
 <style scoped>
 .title {
   font-size: 1.5rem;
-  margin: 0 0 1rem 0;
+  margin: 0 0 var(--space-4) 0;
 }
 </style>
