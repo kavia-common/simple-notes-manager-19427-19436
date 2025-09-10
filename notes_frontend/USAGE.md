@@ -1,24 +1,6 @@
-# Simple Notes Frontend Usage
+# Simple Notes Frontend Usage (Frontend-only Demo)
 
-Endpoints expected:
-  - GET /notes
-  - POST /notes
-  - GET /notes/:id
-  - PUT /notes/:id
-  - DELETE /notes/:id
-
-Configuration options:
-
-Option A: Direct to backend (no dev proxy)
-- Set `NUXT_PUBLIC_NOTES_API_BASE` to your backend origin (e.g., `http://localhost:8000`).
-
-Option B: Relative base with dev proxy (default)
-- Use `/api` as base and set `NUXT_BACKEND_URL` so the dev server proxies `/api/*` to your backend.
-- Example:
-  ```
-  NUXT_PUBLIC_NOTES_API_BASE=/api
-  NUXT_BACKEND_URL=http://localhost:8000
-  ```
+This demo needs no backend. All notes are stored in memory and persisted to your browser's localStorage.
 
 Development
 - npm install
@@ -27,3 +9,6 @@ Development
 Build
 - npm run build
 - npm run preview
+
+Connect a backend later
+- Replace the CRUD methods in `composables/useNotes.ts` with your API calls when you have a server.

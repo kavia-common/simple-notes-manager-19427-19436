@@ -1,12 +1,6 @@
 /**
- * Nuxt configuration for Simple Notes App frontend.
- * - Exposes public runtime config: notesApiBase
- *   Set via env: NUXT_PUBLIC_NOTES_API_BASE (e.g., http://localhost:8000)
- *   Defaults to '/api' for reverse proxy scenarios.
- *
- * Dev proxy:
- * - If you keep notesApiBase='/api', set NUXT_BACKEND_URL (e.g., http://localhost:8000)
- *   to proxy /api/* to your backend during `npm run dev`.
+ * Nuxt configuration for Simple Notes App frontend (frontend-only demo).
+ * This build is fully static-friendly and does not rely on any backend.
  */
 export default defineNuxtConfig({
   compatibilityDate: "2024-11-01",
@@ -14,56 +8,15 @@ export default defineNuxtConfig({
   app: {
     head: {
       titleTemplate: '%s',
+      title: 'Simple Notes',
       meta: [
         { name: 'viewport', content: 'width=device-width, initial-scale=1' },
-        { name: 'description', content: 'A simple notes app built with Nuxt 3' },
+        { name: 'description', content: 'A simple notes app built with Nuxt 3 (frontend-only demo)' },
       ],
     },
   },
   css: [
     '~/assets/css/global.css',
   ],
-  runtimeConfig: {
-    public: {
-      // ENV: NUXT_PUBLIC_NOTES_API_BASE (optional)
-      // Default '/api' is used if not set.
-      notesApiBase: process.env.NUXT_PUBLIC_NOTES_API_BASE || '/api',
-    },
-  },
-  nitro: {
-    routeRules: {
-      "/**": {
-        headers: {
-          "Access-Control-Allow-Origin": "*",
-        },
-      },
-    },
-    // Dev-time server proxy (used by Nitro) if NUXT_BACKEND_URL is provided
-    devProxy: process.env.NUXT_BACKEND_URL
-      ? {
-          "/api": {
-            target: process.env.NUXT_BACKEND_URL,
-            changeOrigin: true,
-            prependPath: false,
-          },
-        }
-      : undefined,
-  },
-  vite: {
-    server: {
-      host: '0.0.0.0',
-      allowedHosts: true,
-      port: 3000,
-      // Vite dev proxy for browser-originated requests during development
-      proxy: process.env.NUXT_BACKEND_URL
-        ? {
-            '/api': {
-              target: process.env.NUXT_BACKEND_URL,
-              changeOrigin: true,
-              secure: false,
-            },
-          }
-        : undefined,
-    },
-  },
-});
+  // No runtimeConfig, proxies, or CORS headers needed for in-memory demo
+})

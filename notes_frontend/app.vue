@@ -15,7 +15,7 @@
     </main>
 
     <footer class="container app-footer">
-      Built with Nuxt 3
+      Built with Nuxt 3 • Demo mode (no backend). If you saw 404s before, that was due to missing API routes — now everything runs locally.
     </footer>
 
     <NuxtRouteAnnouncer />
