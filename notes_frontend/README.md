@@ -1,75 +1,48 @@
-# Nuxt Minimal Starter
+# Simple Notes - Nuxt Frontend
 
-Look at the [Nuxt documentation](https://nuxt.com/docs/getting-started/introduction) to learn more.
+A minimal Nuxt 3 frontend for managing notes. Supports:
+- List notes
+- Create new note
+- View note
+- Edit note
+- Delete note
+
+## Backend API
+This UI expects a REST backend exposing:
+- GET    {API_BASE}/notes
+- POST   {API_BASE}/notes           body: { title, content }
+- GET    {API_BASE}/notes/:id
+- PUT    {API_BASE}/notes/:id       body: { title?, content? }
+- DELETE {API_BASE}/notes/:id
+
+Set the public API base via environment variable `NUXT_PUBLIC_NOTES_API_BASE` or let it default to `/api`.
+
+## Configuration
+Copy `.env.example` to `.env` and set:
+```
+NUXT_PUBLIC_NOTES_API_BASE=http://localhost:8000
+```
 
 ## Setup
-
-Make sure to install dependencies:
+Install dependencies and run:
 
 ```bash
-# npm
+# install
 npm install
 
-# pnpm
-pnpm install
-
-# yarn
-yarn install
-
-# bun
-bun install
-```
-
-## Development Server
-
-Start the development server on `http://localhost:3000`:
-
-```bash
-# npm
+# dev
 npm run dev
 
-# pnpm
-pnpm dev
-
-# yarn
-yarn dev
-
-# bun
-bun run dev
-```
-
-## Production
-
-Build the application for production:
-
-```bash
-# npm
+# build
 npm run build
 
-# pnpm
-pnpm build
-
-# yarn
-yarn build
-
-# bun
-bun run build
-```
-
-Locally preview production build:
-
-```bash
-# npm
+# preview
 npm run preview
-
-# pnpm
-pnpm preview
-
-# yarn
-yarn preview
-
-# bun
-bun run preview
 ```
 
-Check out the [deployment documentation](https://nuxt.com/docs/getting-started/deployment) for more information.
+Open http://localhost:3000
+
+## Notes
+- Public runtime config: `runtimeConfig.public.notesApiBase`
+- Basic CORS headers are set in `nuxt.config.ts` via Nitro route rules (adjust for production reverse proxy).
+- The UI uses a lightweight local composable store (`useNotes`) without extra state libs.
