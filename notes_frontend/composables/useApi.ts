@@ -14,7 +14,24 @@ export function useApiBase(): string {
   const config = useRuntimeConfig()
   const fromRuntime = (config?.public as any)?.notesApiBase as string | undefined
   const fromEnv = (import.meta as any)?.env?.NUXT_PUBLIC_NOTES_API_BASE as string | undefined
-  return (fromRuntime || fromEnv || '/api').replace(/\/+$/, '')
+  // Trim trailing slashes on base for consistent joining
+  return (fromRuntime || fromEnv || '/api').replace(/\/*$/, '')
+}
+
+/**
+ * PUBLIC_INTERFACE
+ * getResolvedApiBase
+ * Utility to get the API base currently in use (for debugging/telemetry/UI help).
+ */
+export function getResolvedApiBase(): string {
+  return useApiBase()
+}
+
+// Normalize a path to ensure exactly one leading slash
+function normalizePath(p: string): string {
+  if (!p) return '/'
+  // ensure single leading slash
+  return `/${p}`.replace(/^\/+/, '/')
 }
 
 /**
@@ -31,9 +48,10 @@ export function useApiBase(): string {
  */
 export async function apiFetchJson<T = any>(path: string, opts: RequestInit = {}): Promise<T> {
   const base = useApiBase()
-  const url = `${base}${path}`
+  const normalizedPath = normalizePath(path)
+  const url = `${base}${normalizedPath}`
   const headers: HeadersInit = {
-    'Accept': 'application/json',
+    Accept: 'application/json',
     ...(opts.body ? { 'Content-Type': 'application/json' } : {}),
     ...(opts.headers || {}),
   }
